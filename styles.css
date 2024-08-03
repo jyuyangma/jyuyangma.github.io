@@ -24,9 +24,20 @@ main {
     margin-bottom: 20px;
 }
 
-.home img, .home .intro img {
+figure {
+    text-align: center;
+    margin: 0;
+}
+
+figure img {
     max-width: 100px;
     border-radius: 50%;
+}
+
+figcaption {
+    font-size: 0.9em;
+    color: #666;
+    margin-top: 5px;
 }
 
 .home .intro {
