@@ -12,41 +12,51 @@ header {
     text-align: center;
 }
 
-header h1 {
+header .site-avatar img {
+    border-radius: 50%;
+    width: 100px;
+}
+
+header .title-area {
+    display: inline-block;
+    text-align: left;
+}
+
+header .title-area .site-title {
     margin: 0;
+}
+
+header .title-area .site-description {
+    margin: 0;
+}
+
+nav.nav-primary ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav.nav-primary ul li {
+    display: inline;
+    margin: 0 10px;
 }
 
 main {
     padding: 20px;
 }
 
-.home, .bio {
-    margin-bottom: 20px;
-}
-
-figure {
+.profile-pic {
     text-align: center;
-    margin: 0;
 }
 
-figure img {
-    max-width: 100px;
+.profile-pic img {
     border-radius: 50%;
 }
 
-figcaption {
+.profile-pic figcaption {
     font-size: 0.9em;
     color: #666;
     margin-top: 5px;
-}
-
-.home .intro {
-    display: flex;
-    align-items: center;
-}
-
-.home .intro h2 {
-    margin: 0 10px;
 }
 
 footer {
@@ -56,10 +66,18 @@ footer {
     text-align: center;
 }
 
-footer a {
-    color: #fff;
-    text-decoration: none;
-    margin: 0 5px;
+footer .social-icons {
+    margin-bottom: 10px;
+}
+
+footer .social-icons a {
+    margin: 0 10px;
+}
+
+.icon {
+    width: 24px; /* Adjust the size as needed */
+    height: 24px; /* Adjust the size as needed */
+    vertical-align: middle;
 }
 
 footer p {
