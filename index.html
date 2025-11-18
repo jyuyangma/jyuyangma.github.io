@@ -1,296 +1,611 @@
-<!DOCTYPE HTML>
-<!--
-	Editorial by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-	<head>
-		<title>Home - Yuyang's Personal Website</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<link rel="icon" href="./images/title/favicon.ico" type="image/x-icon">
-	</head>
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yuyang (Johnny) Ma | Ph.D. Student @ USC</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Updated to Noto Serif SC -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Noto+Serif+SC:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- <link rel="icon" href="./images/title/favicon.ico" type="image/x-icon"> -->
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-	<!-- Google tag (gtag.js) -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=G-V3611X1FCC"></script>
-	<script>
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        earth: {
+                            primary: '#2C5F2D',   /* Deep Forest Green */
+                            light: '#97BC62',     /* Fresh Sprout Green */
+                            brown: '#977F6D',     /* Muted Earth Brown */
+                            cream: '#FDFBF7',     /* Warm Paper White */
+                            sand: '#EFEBE0',      /* Beige */
+                            night: '#0a1f10',     /* Deepest Midnight Green */
+                            mist: '#A3B18A',      /* Sage for dark mode text */
+                        },
+                    },
+                    fontFamily: {
+                        // 'sans' is used for body text (currently Inter)
+                        sans: ['Inter', 'sans-serif'],
+                        
+                        // 'serif' is used for headings (currently Playfair Display)
+                        serif: ['Playfair Display', 'serif'],
+                        
+                        // 'chinese' is your custom class (Updated to Noto Serif SC)
+                        chinese: ['"Noto Serif SC"', 'serif'], 
+                    }
+                }
+            }
+        }
+    </script>
 
-	gtag('config', 'G-V3611X1FCC');
-	</script>
+    <style>
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #97BC62; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #2C5F2D; }
 
-	<body class="is-preload">
+        /* Transitions */
+        body, div, nav, section, p, h1, h2, h3, a, li, button {
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, opacity 0.3s ease;
+        }
 
-		<!-- Wrapper -->
-			<div id="wrapper">
-				<!-- Main -->
-					<div id="main">
-						<div class="inner">
-							<!-- Header -->
-								<header id="header">
-									<a href="index.html" class="logo"><strong>Yuyang (Johnny) Ma</strong> 马誉洋</a>
-									<ul class="icons">
-										<li><a href="mailto:yuyangm@usc.edu" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
-										<li><a href="https://www.linkedin.com/in/yuyangma1/" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
-										<li><a href="https://github.com/jyuyangma" class="icon brands fa-github"><span class="label">Github</span></a></li>
-									</ul>
-								</header>
+        /* Dropdown Animation */
+        .dropdown-menu {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.2s ease-out;
+        }
+        .group:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
 
-							<!-- Banner -->
-								<section id="banner">
-									<div class="content">
-										<header>
-											<h1>Hi, I'm Yuyang Ma<br /></h1>
-											<p>Ph.D. student @ University of Southern California ISE</p>
-										</header>
-										<p>
-											Yuyang Ma is a Ph.D. student in the Daniel J. Epstein Department of Industrial and Systems Engineering at University of Southern California. He received a master's degree in operations research from Georgia Institute of Technology in 2022. Prior to that, he received a bachelor's degree in industrial engineering from the University of Pittsburgh (Pittsburgh, United States) and a bachelor's degree in industrial engineering from Sichuan University (Chengdu, China). Yuyang's research interests lie in optimization under uncertainty and corresponding applications. He is currently working with <a href="https://sites.google.com/site/karmelshehadeh/home">Dr. Karmel S. Shehadeh</a>.
-										</p>
-										<!-- <ul class="actions">
-											<li><a href="biography.html" class="button big">Learn More</a></li>
-										</ul> -->
-									</div>
-									<span class="image object">
-										<img src="images/homepages/myphoto_2022_arcadia.jpg" alt="arcadia_2022" />
-									</span>
-								</section>
+        /* Page Switch Animation */
+        .page-section {
+            display: none;
+            opacity: 0;
+            animation: fadeIn 0.5s forwards;
+        }
+        .page-section.active {
+            display: block;
+        }
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+    </style>
+</head>
 
-							<!-- News Section -->
-								<section>
-									<header class="major">
-										<h2>News</h2>
-									</header>
-									<ul>
-										<li><b><i>11/04/2025</i></b>: Our paper <i>"Integrated Planning of Drone-Based Disaster Relief: Facility Location, Inventory Prepositioning, and Fleet Operations under Uncertainty"</i> can be now access on <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5700524">SSRN</a> &#129395;. </li>
-										<li><b><i>08/15/2025</i></b>: I am now continuing my Ph.D. journey at University of Southern California. </li>
-										<li><b><i>09/12/2024</i></b>: I passed Lehigh ISE Ph.D. student qulifying exam. </li>
-										<li><b><i>08/23/2023</i></b>: My journey at Lehigh ISE begins! </li>
-										<li><b><i>12/16/2022</i></b>: I am honored to obtain Master's degree from Georgia Tech. </li>
-									</ul>
-								<!-- ClustrMaps widget script -->
-								<section>
-									<header class="major">
-										<h2>Visitor Map</h2>
-									</header>
-									<div style="height:250px; width:300px;margin: 0 auto;">
-										<script type="text/javascript" id="clstr_globe" src="//clustrmaps.com/globe.js?d=Gtro-7Mn9uM4pSnq7WqPqN-qRJTe-hOXrJZ3JoCdWho"></script>
-									</div>
-								</section>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-V3611X1FCC"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
 
-							<!-- Section 
-								<section>
-									<header class="major">
-										<h2>Erat lacinia</h2>
-									</header>
-									<div class="features">
-										<article>
-											<span class="icon fa-gem"></span>
-											<div class="content">
-												<h3>Portitor ullamcorper</h3>
-												<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
-											</div>
-										</article>
-										<article>
-											<span class="icon solid fa-paper-plane"></span>
-											<div class="content">
-												<h3>Sapien veroeros</h3>
-												<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
-											</div>
-										</article>
-										<article>
-											<span class="icon solid fa-rocket"></span>
-											<div class="content">
-												<h3>Quam lorem ipsum</h3>
-												<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
-											</div>
-										</article>
-										<article>
-											<span class="icon solid fa-signal"></span>
-											<div class="content">
-												<h3>Sed magna finibus</h3>
-												<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
-											</div>
-										</article>
-									</div>
-								</section>
-							-->
-							<!-- Section
-								<section>
-									<header class="major">
-										<h2>Ipsum sed dolor</h2>
-									</header>
-									<div class="posts">
-										<article>
-											<a href="#" class="image"><img src="images/pic01.jpg" alt="" /></a>
-											<h3>Interdum aenean</h3>
-											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
-											<ul class="actions">
-												<li><a href="#" class="button">More</a></li>
-											</ul>
-										</article>
-										<article>
-											<a href="#" class="image"><img src="images/pic02.jpg" alt="" /></a>
-											<h3>Nulla amet dolore</h3>
-											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
-											<ul class="actions">
-												<li><a href="#" class="button">More</a></li>
-											</ul>
-										</article>
-										<article>
-											<a href="#" class="image"><img src="images/pic03.jpg" alt="" /></a>
-											<h3>Tempus ullamcorper</h3>
-											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
-											<ul class="actions">
-												<li><a href="#" class="button">More</a></li>
-											</ul>
-										</article>
-										<article>
-											<a href="#" class="image"><img src="images/pic04.jpg" alt="" /></a>
-											<h3>Sed etiam facilis</h3>
-											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
-											<ul class="actions">
-												<li><a href="#" class="button">More</a></li>
-											</ul>
-										</article>
-										<article>
-											<a href="#" class="image"><img src="images/pic05.jpg" alt="" /></a>
-											<h3>Feugiat lorem aenean</h3>
-											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
-											<ul class="actions">
-												<li><a href="#" class="button">More</a></li>
-											</ul>
-										</article>
-										<article>
-											<a href="#" class="image"><img src="images/pic06.jpg" alt="" /></a>
-											<h3>Amet varius aliquam</h3>
-											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
-											<ul class="actions">
-												<li><a href="#" class="button">More</a></li>
-											</ul>
-										</article>
-									</div>
-								</section>
-									 -->
-						</div>
-					</div>
+gtag('config', 'G-V3611X1FCC');
+</script>
 
-				<!-- Sidebar -->
-					<div id="sidebar">
-						<div class="inner">
+<body class="bg-earth-cream text-gray-800 dark:bg-earth-night dark:text-earth-sand font-sans antialiased selection:bg-earth-light selection:text-white flex flex-col min-h-screen">
 
-							<!-- Search -->
-								<section id="search" class="alt">
-									<form method="post" action="#">
-										<input type="text" name="query" id="query" placeholder="Search" />
-									</form>
-								</section>
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-earth-cream/95 dark:bg-earth-night/95 backdrop-blur-sm z-50 border-b border-earth-sand dark:border-earth-primary/30 py-4">
+        <div class="max-w-5xl mx-auto px-6 flex justify-between items-center">
+            
+            <!-- Logo / Name -->
+            <a href="#" onclick="switchPage('home')" class="group flex items-baseline gap-3 hover:opacity-80 transition shrink-0">
+                <span class="font-serif text-xl font-bold text-earth-primary dark:text-earth-light tracking-tight">Yuyang Ma</span>
+                <!-- Chinese Name in Nav Bar with Noto Serif SC -->
+                <span class="font-chinese text-xl text-earth-primary dark:text-earth-light opacity-90 group-hover:opacity-100 transition-opacity">马誉洋</span>
+            </a>
+            
+            <div class="flex items-center">
+                <!-- Desktop Menu - Using GAP-8 for Equal Intervals -->
+                <div class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-600 dark:text-earth-mist mr-8">
+                    
+                    <a href="#about" onclick="switchPage('home')" class="hover:text-earth-primary dark:hover:text-earth-light transition-colors">About</a>
+                    
+                    <a href="#news" onclick="switchPage('home')" class="hover:text-earth-primary dark:hover:text-earth-light transition-colors">News</a>
+                    
+                    <!-- Research Dropdown -->
+                    <div class="relative group h-full flex items-center">
+                        <a href="#research" onclick="switchPage('home')" class="hover:text-earth-primary dark:hover:text-earth-light transition-colors cursor-pointer flex items-center gap-1">
+                            Research <i class="fas fa-chevron-down text-[8px] opacity-50 pt-0.5"></i>
+                        </a>
+                        
+                        <!-- The Dropdown: Aligned directly below -->
+                        <div class="dropdown-menu absolute left-0 top-full pt-4 w-56 z-50">
+                             <div class="bg-white dark:bg-gray-900 shadow-xl rounded-lg border border-earth-sand dark:border-gray-700 overflow-hidden">
+                                <a onclick="switchPage('project-1')" class="block px-4 py-3 text-xs text-gray-700 dark:text-gray-300 hover:bg-earth-sand dark:hover:bg-white/10 cursor-pointer border-b border-gray-50 dark:border-gray-800">
+                                    Drone-Based Disaster Relief
+                                </a>
+                                <!-- <a onclick="switchPage('project-2')" class="block px-4 py-3 text-xs text-gray-700 dark:text-gray-300 hover:bg-earth-sand dark:hover:bg-white/10 cursor-pointer">
+                                    Supply Chain Resilience
+                                </a> -->
+                            </div>
+                        </div>
+                    </div>
 
-							<!-- Menu -->
-								<nav id="menu">
-									<header class="major">
-										<h2>Menu</h2>
-									</header>
-									<ul>
-										<li><a href="index.html">Homepage</a></li>
-										<!-- <li><a href="biography.html">Biography</a></li> -->
-										<li>
-											<span class="opener">Research</span>
-											<ul>
-												<li><a href="#">Drone's Delivery Problem</a></li>
-												<li><a href="#">Facility Location Problem</a></li>
-												<li><a href="#">Robust Optimization</a></li>
-											</ul>
-										</li>
-										<li><a href="teaching.html">Teaching</a></li>
-										<li><a href="cv.html">Curriculum Vitae</a></li>
-										<!--
-										<li><a href="#">Etiam Dolore</a></li>
-										<li><a href="#">Adipiscing</a></li>
-										<li>
-											<span class="opener">Another Submenu</span>
-											<ul>
-												<li><a href="#">Lorem Dolor</a></li>
-												<li><a href="#">Ipsum Adipiscing</a></li>
-												<li><a href="#">Tempus Magna</a></li>
-												<li><a href="#">Feugiat Veroeros</a></li>
-											</ul>
-										</li>
-										<li><a href="#">Maximus Erat</a></li>
-										<li><a href="#">Sapien Mauris</a></li>
-										<li><a href="#">Amet Lacinia</a></li>
-										-->
-									</ul>
-								</nav>
-								
-								<!-- Section -->
-								<section>
-									<header class="major">
-										<h2>Miscellaneous</h2>
-									</header>
-									<div class="mini-posts">
-										<article>
-											<a href="#" class="image"><img src="images/homepages/trimmed_xiaobao.jpg" alt="" /></a>
-											<p>OMG! My cats are so cute!!!!</p>
-										</article>
-									</div>
-									<ul class="actions">
-										<li><a href="#" class="button">More</a></li>
-									</ul>
-								</section>
-							<!-- Section 
-								<section>
-									<header class="major">
-										<h2>Diversions</h2>
-									</header>
-									<div class="mini-posts">
-										<article>
-											<a href="#" class="image"><img src="images/pic07.jpg" alt="" /></a>
-											<p>...</p>
-										</article>
-									</div>
-									<ul class="actions">
-										<li><a href="#" class="button">More</a></li>
-									</ul>
-								</section> -->
+                    <a href="#teaching" onclick="switchPage('home')" class="hover:text-earth-primary dark:hover:text-earth-light transition-colors">Teaching</a>
+                    
+                    <!-- CV Link -->
+                    <a onclick="switchPage('cv-page')" class="hover:text-earth-primary dark:hover:text-earth-light transition-colors cursor-pointer">CV</a>
+                    
+                    <!-- Life Link -->
+                    <a onclick="switchPage('life-page')" class="hover:text-earth-primary dark:hover:text-earth-light transition-colors cursor-pointer">Miscellaneous</a>
+                    
+                    <a href="#contact" onclick="switchPage('home')" class="hover:text-earth-primary dark:hover:text-earth-light transition-colors">Contact</a>
+                </div>
 
-							<!-- Section -->
-								<section>
-									<header class="major">
-										<h2>Get in touch</h2>
-									</header>
-									<p>
-										The best way to contact is through e-mail (yuyangm 'at' usc 'dot' edu). Please indicate the purpose of the e-mail in the subject line, and I will try to respond as soon as possible. Besides, you can also reach me through the following ways:
-									</p>
-									<ul class="contact">
-										<li class="icon solid fa-envelope"><a href="mailto:yuyangm@usc.edu">yuyangm@usc.edu (work)</a></li>
-										<li class="icon solid fa-envelope"><a href="mailto:yuyang0227@outlook.com">yuyang0227@outlook.com (personal)</a></li>
-										<li class="icon solid fa-phone">+1 (470) 457-9866</li>
-										<li class="icon brands fa-weixin">JohnnyM227</li>
-										<li class="icon solid fa-home"> 3650 McClintock Ave, Room 304 <br />
-										Los Angeles, CA 90089 </li>
-									</ul>
-								</section>
+                <!-- Dark Mode Toggle -->
+                <button id="theme-toggle" class="text-earth-primary dark:text-earth-light hover:scale-110 transition-transform focus:outline-none">
+                    <i id="theme-icon" class="fas fa-moon"></i>
+                </button>
 
-							<!-- Footer -->
-								<footer id="footer">
-									<p class="copyright">&copy; Yuyang Ma. All rights reserved. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
-								</footer>
+                <!-- Mobile Menu Icon -->
+                <button id="mobile-menu-btn" class="md:hidden text-earth-primary dark:text-earth-light text-xl ml-6 focus:outline-none">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
 
-						</div>
-					</div>
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="hidden md:hidden bg-earth-cream dark:bg-earth-night border-t border-earth-sand dark:border-gray-800 absolute w-full left-0 top-full shadow-lg">
+            <div class="flex flex-col px-6 py-4 space-y-4 text-sm font-medium text-gray-600 dark:text-earth-mist">
+                <a onclick="switchPage('home'); toggleMobileMenu()" class="hover:text-earth-primary dark:hover:text-earth-light cursor-pointer">About</a>
+                <a onclick="switchPage('home'); toggleMobileMenu()" href="#news" class="hover:text-earth-primary dark:hover:text-earth-light cursor-pointer">News</a>
+                
+                <!-- Research Mobile Group -->
+                <div class="pl-4 border-l-2 border-earth-sand dark:border-gray-700 space-y-3 py-1">
+                    <span class="text-xs font-bold uppercase tracking-wider text-earth-primary dark:text-earth-light opacity-50">Research</span>
+                    <a onclick="switchPage('project-1'); toggleMobileMenu()" class="block cursor-pointer hover:text-earth-primary">Drone Relief</a>
+                    <!-- <a onclick="switchPage('project-2'); toggleMobileMenu()" class="block cursor-pointer hover:text-earth-primary">Supply Chain</a> -->
+                </div>
 
-			</div>
+                <a onclick="switchPage('home'); toggleMobileMenu()" href="#teaching" class="hover:text-earth-primary dark:hover:text-earth-light cursor-pointer">Teaching</a>
+                <a onclick="switchPage('cv-page'); toggleMobileMenu()" class="hover:text-earth-primary dark:hover:text-earth-light cursor-pointer">CV</a>
+                <a onclick="switchPage('life-page'); toggleMobileMenu()" class="hover:text-earth-primary dark:hover:text-earth-light cursor-pointer">Life</a>
+                <a onclick="switchPage('home'); toggleMobileMenu()" href="#contact" class="hover:text-earth-primary dark:hover:text-earth-light cursor-pointer">Contact</a>
+            </div>
+        </div>
+    </nav>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+    <!-- ========================= -->
+    <!-- HOME PAGE VIEW            -->
+    <!-- ========================= -->
+    <div id="home-page" class="page-section active flex-grow">
+        <main class="max-w-5xl mx-auto px-6 pt-36 pb-10">
+            
+            <!-- Hero -->
+            <section id="about" class="mb-24">
+                <div class="flex flex-col md:flex-row gap-12 items-center md:items-start">
+                    <div class="shrink-0 relative group">
+                        <div class="absolute -inset-2 rounded-full border border-earth-light opacity-30 transform rotate-45 group-hover:rotate-90 transition-transform duration-1000"></div>
+                        <div class="w-40 h-40 md:w-48 md:h-48 rounded-full overflow-hidden border-4 border-white dark:border-gray-800 shadow-lg relative bg-gray-100 z-10">
+                            <img src="images/homepages/myphoto_2023.jpeg" alt="Yuyang Ma" class="w-full h-full object-cover filter brightness-105 group-hover:scale-105 transition-transform duration-700">
+                        </div>
+                    </div>
 
-	</body>
+                    <div class="text-center md:text-left pt-2 max-w-2xl">
+                        <h1 class="font-serif text-4xl md:text-5xl font-bold text-earth-primary dark:text-white mb-4">
+                            Yuyang (Johnny) Ma
+                        </h1>
+                        <p class="text-lg text-earth-brown dark:text-earth-mist mb-6 font-light italic">
+                            Ph.D. Student @ USC | Industrial & Systems Engineering
+                        </p>
+                        <p class="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed font-light text-base">
+                            Yuyang Ma is a Ph.D. student in the Daniel J. Epstein Department of Industrial and Systems Engineering at University of Southern California. He received a master's degree in operations research from Georgia Institute of Technology in 2022. Prior to that, he received a bachelor's degree in industrial engineering from the University of Pittsburgh (Pittsburgh, United States) and a bachelor's degree in industrial engineering from Sichuan University (Chengdu, China). Yuyang's research interests lie in <strong class="text-earth-primary dark:text-earth-light font-medium">optimization under uncertainty and corresponding applications</strong>. He is currently working with <a href="https://sites.google.com/site/karmelshehadeh/home" target="_blank" class="hover:text-earth-primary dark:hover:text-earth-light transition-colors underline decoration-earth-light/50 underline-offset-2">Dr. Karmel S. Shehadeh</a>.
+
+                        </p>
+                        <div class="flex justify-center md:justify-start gap-6">
+                            <!-- Email Link -->
+                            <a href="mailto:yuyangm@usc.edu" class="text-gray-400 hover:text-earth-primary dark:hover:text-earth-light transition-colors text-xl"><i class="fas fa-envelope"></i></a>
+                            <!-- Google Scholar Link -->
+                            <a href="https://scholar.google.com/citations?hl=en&user=3R2I6IgAAAAJ&inst=7943137549644843768" class="text-gray-400 hover:text-earth-primary dark:hover:text-earth-light transition-colors text-xl"><i class="fas fa-graduation-cap"></i></a> 
+                            <!-- Github Link -->
+                            <a href="https://github.com/jyuyangma" target="_blank" class="text-gray-400 hover:text-earth-primary dark:hover:text-earth-light transition-colors text-xl"><i class="fab fa-github"></i></a>
+                            <!-- LinkedIn Icon -->
+                            <a href="https://www.linkedin.com/in/yuyangma1/" class="text-gray-400 hover:text-earth-primary dark:hover:text-earth-light transition-colors text-xl"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <hr class="border-earth-sand dark:border-earth-primary/20 mb-20">
+
+            <!-- News -->
+            <section id="news" class="mb-24">
+                <h2 class="font-serif text-2xl font-bold text-gray-900 dark:text-white mb-8 flex items-center">
+                    <span class="bg-earth-light w-1.5 h-6 rounded-full mr-3"></span> News
+                </h2>
+                <div class="space-y-10 border-l border-earth-sand dark:border-earth-primary/20 ml-2 pl-8 relative">
+                    <div class="relative group">
+                        <div class="absolute -left-[37px] top-1.5 w-3 h-3 bg-earth-primary dark:bg-earth-light rounded-full ring-4 ring-earth-cream dark:ring-earth-night group-hover:scale-125 transition-transform"></div>
+                        <div class="flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-6">
+                            <span class="text-xs font-bold text-earth-brown dark:text-earth-mist uppercase tracking-wider shrink-0 w-24">Nov 2025</span>
+                            <p class="text-gray-700 dark:text-gray-300">Our paper <span class="italic font-medium text-earth-primary dark:text-earth-light">"Integrated Planning of Drone-Based Disaster Relief: Facility Location, Inventory Prepositioning, and Fleet Operations under Uncertainty"</span> is now now access on <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5700524" target="_blank" class="hover:text-earth-primary dark:hover:text-earth-light transition-colors underline decoration-earth-light/50 underline-offset-2">SSRN</a> &#129395;.</p>
+                        </div>
+                    </div>
+                    <div class="relative group">
+                        <div class="absolute -left-[37px] top-1.5 w-3 h-3 bg-earth-sand dark:bg-gray-700 rounded-full ring-4 ring-earth-cream dark:ring-earth-night group-hover:bg-earth-light transition-colors"></div>
+                        <div class="flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-6">
+                            <span class="text-xs font-bold text-earth-brown dark:text-earth-mist uppercase tracking-wider shrink-0 w-24">Aug 2025</span>
+                            <p class="text-gray-700 dark:text-gray-300">I am now continuing my Ph.D. journey at University of Southern California.</p>
+                        </div>
+                    </div>
+                    <div class="relative group">
+                        <div class="absolute -left-[37px] top-1.5 w-3 h-3 bg-earth-sand dark:bg-gray-700 rounded-full ring-4 ring-earth-cream dark:ring-earth-night group-hover:bg-earth-light transition-colors"></div>
+                        <div class="flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-6">
+                            <span class="text-xs font-bold text-earth-brown dark:text-earth-mist uppercase tracking-wider shrink-0 w-24">Dec 2022</span>
+                            <p class="text-gray-700 dark:text-gray-300">I am honored to obtain Master's degree from Georgia Tech.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Research -->
+            <section id="research" class="mb-24">
+                <div class="flex justify-between items-end mb-10">
+                    <h2 class="font-serif text-2xl font-bold text-gray-900 dark:text-white flex items-center">
+                        <span class="bg-earth-light w-1.5 h-6 rounded-full mr-3"></span> Selected Works
+                    </h2>
+                </div>
+                <div class="space-y-8">
+                    <!-- Paper 1 -->
+                    <div class="group bg-white dark:bg-white/5 p-6 rounded-xl shadow-sm border border-earth-sand dark:border-earth-primary/20 hover:shadow-md hover:border-earth-light dark:hover:border-earth-light/50 transition-all duration-300">
+                        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2 mb-2">
+                            <h3 class="text-lg font-serif font-bold text-gray-900 dark:text-white group-hover:text-earth-primary dark:group-hover:text-earth-light transition-colors">
+                                Integrated Planning of Drone-Based Disaster Relief: Facility Location, Inventory Prepositioning, and Fleet Operations under Uncertainty
+                            </h3>
+                            <span class="text-[10px] font-bold text-white bg-earth-light px-2 py-1 rounded self-start uppercase tracking-wider">Submitted</span>
+                        </div>
+                        <p class="text-sm text-earth-brown dark:text-earth-mist mb-3">
+                            <span class="font-semibold text-gray-900 dark:text-gray-200">Yuyang Ma</span>, Karmel S. Shehadeh, Man-Yiu Tsang
+                        </p>
+                        <div class="flex gap-4 pt-1 border-t border-gray-50 dark:border-gray-700 mt-4 items-center">
+                            <a href="papers/Drone_Paper_Preprint.pdf" class="text-xs font-bold text-earth-primary dark:text-earth-light hover:text-earth-brown dark:hover:text-white uppercase tracking-wider flex items-center"><i class="far fa-file-pdf mr-1.5"></i> PDF</a>
+                            <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5700524" class="text-xs font-bold text-earth-primary dark:text-earth-light hover:text-earth-brown dark:hover:text-white uppercase tracking-wider flex items-center"><i class="fas fa-link mr-1.5"></i> SSRN</a>
+                            <div class="flex-grow"></div>
+                            <button onclick="switchPage('project-1')" class="text-xs font-bold text-gray-400 hover:text-earth-primary dark:hover:text-white uppercase tracking-wider flex items-center transition-colors">
+                                View Details <i class="fas fa-arrow-right ml-1.5"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Paper 2 -->
+                    <!-- <div class="group bg-white dark:bg-white/5 p-6 rounded-xl shadow-sm border border-earth-sand dark:border-earth-primary/20 hover:shadow-md hover:border-earth-light dark:hover:border-earth-light/50 transition-all duration-300">
+                        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2 mb-2">
+                            <h3 class="text-lg font-serif font-bold text-gray-900 dark:text-white group-hover:text-earth-primary dark:group-hover:text-earth-light transition-colors">
+                                Robust Optimization for Supply Chain Resilience
+                            </h3>
+                            <span class="text-[10px] font-bold text-earth-brown dark:text-earth-mist bg-earth-sand dark:bg-white/10 px-2 py-1 rounded self-start uppercase tracking-wider">In Prep</span>
+                        </div>
+                        <p class="text-sm text-earth-brown dark:text-earth-mist mb-3">
+                            <span class="font-semibold text-gray-900 dark:text-gray-200">Yuyang Ma</span>, Co-Author
+                        </p>
+                        <div class="flex gap-4 pt-1 border-t border-gray-50 dark:border-gray-700 mt-4 items-center">
+                            <div class="flex-grow"></div>
+                            <button onclick="switchPage('project-2')" class="text-xs font-bold text-gray-400 hover:text-earth-primary dark:hover:text-white uppercase tracking-wider flex items-center transition-colors">
+                                View Details <i class="fas fa-arrow-right ml-1.5"></i>
+                            </button>
+                        </div>
+                    </div> -->
+                </div>
+            </section>
+
+                        <!-- Teaching -->
+            <section id="teaching" class="mb-24">
+                <h2 class="font-serif text-2xl font-bold text-gray-900 dark:text-white mb-8 flex items-center">
+                    <span class="bg-earth-light w-1.5 h-6 rounded-full mr-3"></span> Teaching
+                </h2>
+                
+                <div class="bg-white dark:bg-white/5 p-8 rounded-lg border border-earth-sand dark:border-earth-primary/20">
+                    
+                    <!-- Lehigh University -->
+                    <div class="mb-8">
+                        <h3 class="font-serif text-xl font-bold text-earth-primary dark:text-earth-light mb-4">Lehigh University</h3>
+                        <ul class="space-y-4 text-sm text-gray-700 dark:text-gray-300">
+                            <li class="pl-4 border-l-2 border-earth-sand dark:border-earth-primary/30 hover:border-earth-primary transition-colors flex flex-col sm:flex-row sm:justify-between sm:items-baseline gap-1">
+                                <div>
+                                    <span class="font-semibold">Teaching Assistant:</span> 
+                                    <a href="https://catalog.lehigh.edu/courselisting/ise/" target="_blank" class="hover:text-earth-primary dark:hover:text-earth-light transition-colors underline decoration-earth-light/50 underline-offset-2">
+                                        ISE 230 Introduction to Stochastic Models in Operations Research
+                                    </a> 
+                                </div>
+                                <span class="text-earth-brown dark:text-earth-mist shrink-0">Fall 2024</span>
+                            </li>
+                            <li class="pl-4 border-l-2 border-earth-sand dark:border-earth-primary/30 hover:border-earth-primary transition-colors flex flex-col sm:flex-row sm:justify-between sm:items-baseline gap-1">
+                                <div>
+                                    <span class="font-semibold">Teaching Assistant:</span> 
+                                    <a href="https://catalog.lehigh.edu/courselisting/dsci/" target="_blank" class="hover:text-earth-primary dark:hover:text-earth-light transition-colors underline decoration-earth-light/50 underline-offset-2">
+                                        DSCI II 311 Optimization and Mathematical Foundations for Data Science
+                                    </a> 
+                                </div>
+                                <span class="text-earth-brown dark:text-earth-mist shrink-0">Summer 2024</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Divider -->
+                    <hr class="border-earth-sand dark:border-earth-primary/20 mb-8 border-dashed">
+
+                    <!-- Georgia Tech -->
+                    <div>
+                        <h3 class="font-serif text-xl font-bold text-earth-primary dark:text-earth-light mb-4">Georgia Institute of Technology</h3>
+                        <ul class="space-y-4 text-sm text-gray-700 dark:text-gray-300">
+                            <li class="pl-4 border-l-2 border-earth-sand dark:border-earth-primary/30 hover:border-earth-primary transition-colors flex flex-col sm:flex-row sm:justify-between sm:items-baseline gap-1">
+                                <div>
+                                    <span class="font-semibold">Teaching Assistant:</span> 
+                                    <a href="https://omscs.gatech.edu/isye-8803-topics-high-dimensional-data-analytics" target="_blank" class="hover:text-earth-primary dark:hover:text-earth-light transition-colors underline decoration-earth-light/50 underline-offset-2">
+                                        ISYE 8803 Topics on High-Dimensional Data Analytics
+                                    </a> 
+                                </div>
+                                <span class="text-earth-brown dark:text-earth-mist shrink-0">Fall 2022</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- Contact -->
+            <section id="contact" class="mb-12">
+                <h2 class="font-serif text-2xl font-bold text-gray-900 dark:text-white mb-8 flex items-center">
+                    <span class="bg-earth-light w-1.5 h-6 rounded-full mr-3"></span> Contact
+                </h2>
+                <div class="bg-earth-sand/30 dark:bg-white/5 p-8 rounded-xl border border-earth-sand dark:border-earth-primary/20">
+                    <p class="mb-8 text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
+                        The best way to contact is through e-mail (yuyangm 'at' usc 'dot' edu). Please indicate the purpose of the e-mail in the subject line, and I will try to respond as soon as possible. Besides, you can also reach me through the following ways:
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div>
+                            <h4 class="font-serif font-bold text-earth-primary dark:text-earth-light mb-3">Email & Phone</h4>
+                            <ul class="space-y-3 text-sm">
+                                <li class="flex items-center text-gray-700 dark:text-gray-300">
+                                    <span class="w-6 flex justify-center"><i class="fas fa-envelope text-earth-brown"></i></span> 
+                                    <a href="mailto:yuyangm@usc.edu" class="hover:text-earth-primary transition-colors ml-2">yuyangm@usc.edu (Work)</a>
+                                </li>
+                                <li class="flex items-center text-gray-700 dark:text-gray-300">
+                                    <span class="w-6 flex justify-center"><i class="fas fa-envelope text-earth-brown"></i></span> 
+                                    <a href="mailto:yuyang0227@outlook.com" class="hover:text-earth-primary transition-colors ml-2">yuyang0227@outlook.com (Personal)</a>
+                                </li>
+                                <li class="flex items-center text-gray-700 dark:text-gray-300">
+                                    <span class="w-6 flex justify-center"><i class="fas fa-phone text-earth-brown"></i></span> 
+                                    <span class="ml-2">+1 (470) 457-9866</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-serif font-bold text-earth-primary dark:text-earth-light mb-3">Office Address</h4>
+                            <address class="not-italic text-sm text-gray-700 dark:text-gray-300 leading-relaxed flex items-start">
+                                <span class="w-6 flex justify-center mt-1"><i class="fas fa-map-marker-alt text-earth-brown"></i></span>
+                                <span class="ml-2">3650 McClintock Ave, Room 304<br>Los Angeles, CA 90089</span>
+                            </address>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- ClustrMaps widget script -->
+            <section id="VisitorMap" class="mb-12">
+                <h2 class="font-serif text-2xl font-bold text-gray-900 dark:text-white mb-8 flex items-center">
+                    <span class="bg-earth-light w-1.5 h-6 rounded-full mr-3"></span> Visitor Map
+                </h2>
+                <div style="height:250px; width:300px;margin: 0 auto;">
+                    <script type="text/javascript" id="clstr_globe" src="//clustrmaps.com/globe.js?d=Gtro-7Mn9uM4pSnq7WqPqN-qRJTe-hOXrJZ3JoCdWho"></script>
+                </div>
+            </section>
+
+        </main>
+
+        <footer class="bg-white dark:bg-black/20 border-t border-earth-sand dark:border-earth-primary/20 py-12">
+            <div class="max-w-5xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500 dark:text-earth-mist">
+                <div class="mb-4 md:mb-0">&copy; 2025 Yuyang Ma. All rights reserved.</div>
+                <div class="flex items-center gap-4">
+                    <span>Los Angeles, CA</span>
+                    <span class="w-1 h-1 bg-gray-300 dark:bg-gray-700 rounded-full"></span>
+                    <!-- <a href="#contact" class="hover:text-earth-primary dark:hover:text-earth-light transition-colors">Get in Touch</a> -->
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- ========================= -->
+    <!-- CV PAGE                   -->
+    <!-- ========================= -->
+    <div id="cv-page" class="page-section flex-grow bg-earth-cream dark:bg-earth-night">
+        <main class="max-w-5xl mx-auto px-6 pt-36 pb-20">
+             <div class="flex justify-between items-center mb-8">
+                <button onclick="switchPage('home')" class="text-xs font-bold text-earth-brown hover:text-earth-primary dark:text-earth-mist dark:hover:text-white uppercase tracking-wider flex items-center transition-colors">
+                    <i class="fas fa-arrow-left mr-2"></i> Back to Home
+                </button>
+                <a href="files/MaYuyang_CV_2024.pdf" class="px-4 py-2 bg-earth-primary text-white text-xs font-bold uppercase tracking-wider rounded hover:bg-earth-dark transition-colors shadow-md">
+                    <i class="fas fa-download mr-2"></i> Download PDF
+                </a>
+            </div>
+            
+            <!-- <span class="image main"><img src="images/pic11.jpg" alt="" /></span> -->
+            <iframe src="/files/MaYuyang_CV_2024.pdf" style="width:100%; height:1000px;"></iframe>
+            <!-- <embed src="/files/MaYuyang_CV_2024.pdf" width="100%" height="100%" /> -->
+        
+        </main>
+    </div>
+
+    <!-- ========================= -->
+    <!-- LIFE PAGE (Gallery)       -->
+    <!-- ========================= -->
+    <div id="life-page" class="page-section flex-grow bg-earth-cream dark:bg-earth-night">
+        <main class="max-w-5xl mx-auto px-6 pt-36 pb-20">
+            <button onclick="switchPage('home')" class="mb-8 text-xs font-bold text-earth-brown hover:text-earth-primary dark:text-earth-mist dark:hover:text-white uppercase tracking-wider flex items-center transition-colors">
+                <i class="fas fa-arrow-left mr-2"></i> Back to Home
+            </button>
+            
+            <h1 class="font-serif text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6">
+                Miscellaneous Moments
+            </h1>
+            <p class="text-gray-600 dark:text-gray-300 mb-10 leading-relaxed">
+                When I am not solving optimization problems, I enjoy exploring nature, photography, and spending time with my cats.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Photo 1 -->
+                <div class="bg-white dark:bg-white/5 p-3 rounded-lg shadow-sm border border-earth-sand dark:border-gray-700 rotate-1 hover:rotate-0 transition-transform duration-500">
+                    <div class="aspect-square bg-gray-200 dark:bg-gray-800 rounded overflow-hidden mb-3">
+                        <img src="images/homepages/xiaobao_2024.jpeg" class="w-full h-full object-cover hover:scale-110 transition-transform duration-700">
+                    </div>
+                    <p class="text-center font-serif text-sm italic text-earth-brown dark:text-earth-mist">Xiaobao 2024</p>
+                </div>
+
+                <!-- Photo 2 -->
+                <!-- <div class="bg-white dark:bg-white/5 p-3 rounded-lg shadow-sm border border-earth-sand dark:border-gray-700 -rotate-1 hover:rotate-0 transition-transform duration-500">
+                    <div class="aspect-square bg-gray-200 dark:bg-gray-800 rounded overflow-hidden mb-3">
+                        <img src="https://images.unsplash.com/photo-1573865526739-10659fec78a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover hover:scale-110 transition-transform duration-700">
+                    </div>
+                    <p class="text-center font-serif text-sm italic text-earth-brown dark:text-earth-mist">Study Buddy</p>
+                </div> -->
+
+            </div>
+        </main>
+    </div>
+
+    <!-- ========================= -->
+    <!-- PROJECT DETAIL PAGES      -->
+    <!-- ========================= -->
+    
+    <!-- Project 1 -->
+    <div id="project-1" class="page-section flex-grow bg-earth-cream dark:bg-earth-night">
+        <main class="max-w-5xl mx-auto px-6 pt-36 pb-20">
+            <button onclick="switchPage('home')" class="mb-8 text-xs font-bold text-earth-brown hover:text-earth-primary dark:text-earth-mist dark:hover:text-white uppercase tracking-wider flex items-center transition-colors">
+                <i class="fas fa-arrow-left mr-2"></i> Back to Home
+            </button>
+            <span class="text-[10px] font-bold text-white bg-earth-light px-2 py-1 rounded uppercase tracking-wider inline-block mb-4">Submitted</span>
+            <h1 class="font-serif text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6">
+                Integrated Planning of Drone-Based Disaster Relief: Facility Location, Inventory Prepositioning, and Fleet Operations under Uncertainty
+            </h1>
+            <div class="flex flex-wrap gap-6 text-sm text-gray-600 dark:text-gray-400 mb-8 border-b border-earth-sand dark:border-earth-primary/20 pb-8">
+                <span><strong class="text-earth-primary dark:text-earth-light">Authors:</strong> Yuyang Ma, Karmel S. Shehadeh, Man-Yiu Tsang</span>
+                <span><strong class="text-earth-primary dark:text-earth-light">Status:</strong> Under Review</span>
+            </div>
+            <div class="prose prose-earth dark:prose-invert max-w-none text-gray-700 dark:text-gray-300 leading-relaxed space-y-6">
+                <h3 class="font-serif text-xl font-bold text-gray-900 dark:text-white">Abstract</h3>
+                <p>
+                    We introduce a two-stage robust optimization (RO) framework for the integrated planning of a
+                    drone-based disaster relief operations problem (DDROP). Given sets of demand points, candidate
+                    locationsforestablishingdrone-supportedrelieffacilities, facilitytypes, dronetypes, andreliefitems  
+                    types, our first-stage problem solves the following problems simultaneously: (i) a location problem
+                    that determines the number of facilities to establish and where to establish them, (ii) an inventory
+                    prepositioning problem that decides the quantity of relief items to store at each established facility,
+                    (iii) a fleet sizing problem that decides the number of drones to deploy, and (iv) an assignment
+                    problem that assigns drones to established facility and demand points. In the second stage, the
+                    model determines a relief distribution plan and enables the reassignment of drones to demand nodes.
+                    We equip the RO model with an uncertainty set that captures the relationship between facility
+                    disruptions, demand for relief items, drone operational status, and the remaining usable fraction of
+                    pre-positioned supplies after the disaster. Additionally, we explicitly model the dependency of post-
+                    disaster drone functionality on the pre-disaster assignment decisions. To address the challenges
+                    of integer recourse, we derive a K-adaptability approximation of the RO model and develop a
+                    column-and-constraint generation (C&CG) algorithm to solve it. Moreover, we introduce several
+                    strategies to enhance the computational performance of C&CG, including an efficient warm-starting
+                    mechanism, symmetry-breaking constraints, and valid inequalities. We present extensive numerical
+                    experiments that demonstrate the computational efficiency of our framework and provide valuable
+                    insights.
+                </p>
+                <div class="mt-8 p-6 bg-white dark:bg-white/5 rounded-xl border border-earth-sand dark:border-earth-primary/20">
+                    <h4 class="font-serif font-bold mb-4">Resources</h4>
+                    <div class="flex gap-4">
+                        <a href="papers/Drone_Paper_Preprint.pdf" class="px-4 py-2 bg-earth-primary text-white text-sm rounded hover:bg-earth-dark transition-colors">Download PDF</a>
+                        <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5700524" class="px-4 py-2 border border-earth-primary text-earth-primary dark:text-earth-light dark:border-earth-light text-sm rounded hover:bg-earth-sand dark:hover:bg-white/10 transition-colors">View on SSRN</a>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Project 2 -->
+    <!-- <div id="project-2" class="page-section flex-grow bg-earth-cream dark:bg-earth-night">
+        <main class="max-w-5xl mx-auto px-6 pt-36 pb-20">
+            <button onclick="switchPage('home')" class="mb-8 text-xs font-bold text-earth-brown hover:text-earth-primary dark:text-earth-mist dark:hover:text-white uppercase tracking-wider flex items-center transition-colors">
+                <i class="fas fa-arrow-left mr-2"></i> Back to Home
+            </button>
+            <span class="text-[10px] font-bold text-earth-brown dark:text-earth-mist bg-earth-sand dark:bg-white/10 px-2 py-1 rounded uppercase tracking-wider inline-block mb-4">In Preparation</span>
+            <h1 class="font-serif text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6">
+                Robust Optimization for Supply Chain Resilience
+            </h1>
+            <div class="prose prose-earth dark:prose-invert max-w-none text-gray-700 dark:text-gray-300 leading-relaxed space-y-6">
+                <p>This research investigates how robust optimization techniques can be applied to multi-echelon supply chains...</p>
+            </div>
+        </main>
+    </div> -->
+
+    <script>
+        // Theme Logic
+        const themeBtn = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const htmlElement = document.documentElement;
+
+        function updateThemeIcon() {
+            if (htmlElement.classList.contains('dark')) {
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+            } else {
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+            }
+        }
+
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            htmlElement.classList.add('dark');
+        }
+        updateThemeIcon();
+
+        themeBtn.addEventListener('click', () => {
+            if (htmlElement.classList.contains('dark')) {
+                htmlElement.classList.remove('dark');
+                localStorage.theme = 'light';
+            } else {
+                htmlElement.classList.add('dark');
+                localStorage.theme = 'dark';
+            }
+            updateThemeIcon();
+        });
+
+        // Mobile Menu Logic
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        function toggleMobileMenu() {
+            mobileMenu.classList.toggle('hidden');
+        }
+
+        mobileBtn.addEventListener('click', toggleMobileMenu);
+
+        // Page Switching Logic
+        function switchPage(pageId) {
+            // Close mobile menu if open
+            if (!mobileMenu.classList.contains('hidden')) {
+                toggleMobileMenu();
+            }
+
+            document.querySelectorAll('.page-section').forEach(el => {
+                el.classList.remove('active');
+            });
+            const target = document.getElementById(pageId === 'home' ? 'home-page' : pageId);
+            if (target) {
+                target.classList.add('active');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+    </script>
+</body>
 </html>
