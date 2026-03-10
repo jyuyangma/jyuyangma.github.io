@@ -504,28 +504,56 @@ gtag('config', 'G-V3611X1FCC');
                 <span><strong class="text-earth-primary dark:text-earth-light">Status:</strong> Under Review</span>
             </div>
             <div class="prose prose-earth dark:prose-invert max-w-none text-gray-700 dark:text-gray-300 leading-relaxed space-y-6">
-                <h3 class="font-serif text-xl font-bold text-gray-900 dark:text-white">Abstract</h3>
+                <h3 class="font-serif text-xl font-bold text-gray-900 dark:text-white">Motivation</h3>
                 <p>
-                    We introduce a two-stage robust optimization (RO) framework for the integrated planning of a
-                    drone-based disaster relief operations problem (DDROP). Given sets of demand points, candidate
-                    locationsforestablishingdrone-supportedrelieffacilities, facilitytypes, dronetypes, andreliefitems  
-                    types, our first-stage problem solves the following problems simultaneously: (i) a location problem
-                    that determines the number of facilities to establish and where to establish them, (ii) an inventory
-                    prepositioning problem that decides the quantity of relief items to store at each established facility,
-                    (iii) a fleet sizing problem that decides the number of drones to deploy, and (iv) an assignment
-                    problem that assigns drones to established facility and demand points. In the second stage, the
-                    model determines a relief distribution plan and enables the reassignment of drones to demand nodes.
-                    We equip the RO model with an uncertainty set that captures the relationship between facility
-                    disruptions, demand for relief items, drone operational status, and the remaining usable fraction of
-                    pre-positioned supplies after the disaster. Additionally, we explicitly model the dependency of post-
-                    disaster drone functionality on the pre-disaster assignment decisions. To address the challenges
-                    of integer recourse, we derive a K-adaptability approximation of the RO model and develop a
-                    column-and-constraint generation (C&CG) algorithm to solve it. Moreover, we introduce several
-                    strategies to enhance the computational performance of C&CG, including an efficient warm-starting
-                    mechanism, symmetry-breaking constraints, and valid inequalities. We present extensive numerical
-                    experiments that demonstrate the computational efficiency of our framework and provide valuable
-                    insights.
+                    When earthquakes and hurricanes strike, roads collapse and communities become isolated overnight&mdash;yet
+                    those first hours are when aid matters most. From Japan's Noto Peninsula earthquake to Hurricane Dorian
+                    in the Bahamas, destroyed infrastructure has left survivors without food, water, or medical care for days.
+                    <span class="font-semibold text-earth-primary dark:text-earth-light">Drones offer a lifeline</span>:
+                    they fly over rubble and flooded highways to deliver critical supplies directly to those in need.
+                    But planning drone relief is far from simple&mdash;decisions about facility placement, inventory,
+                    fleet size, and drone assignments are deeply coupled and must be made under
+                    <em>profound uncertainty</em> about disaster outcomes.
                 </p>
+
+                <!-- Figure -->
+                <figure class="my-8">
+                    <img src="images/paper_page/drone_sample.png" alt="Illustration of drone-based disaster relief operations showing four phases: pre-disaster planning, disaster disruption, post-disaster without reassignment, and post-disaster with reassignment" class="w-full rounded-xl border border-earth-sand dark:border-earth-primary/20 shadow-sm bg-white p-3">
+                    <figcaption class="mt-3 text-xs text-center text-earth-brown dark:text-earth-mist italic">
+                        Drone-based disaster relief: (a) pre-disaster planning, (b) disaster disruption, (c) post-disaster without reassignment, and (d) post-disaster with reassignment.
+                    </figcaption>
+                </figure>
+
+                <h3 class="font-serif text-xl font-bold text-gray-900 dark:text-white">What We Do</h3>
+                <p>
+                    We introduce a <span class="font-semibold text-earth-primary dark:text-earth-light">two-stage robust optimization framework</span>
+                    that tackles all of these decisions simultaneously. <em>Before</em> the disaster, the model determines
+                    where to build relief facilities, what to stockpile, how many drones to deploy, and where to assign them.
+                    <em>After</em> the disaster, it adaptively distributes supplies and&mdash;crucially&mdash;<span class="font-semibold text-earth-primary dark:text-earth-light">reassigns surviving drones</span>
+                    to the areas that need them most. A key innovation is our
+                    <span class="font-semibold text-earth-primary dark:text-earth-light">decision-dependent uncertainty set</span>,
+                    which captures, for the first time, that a drone's post-disaster functionality depends on
+                    <em>which facility it was assigned to</em> before the disaster.
+                </p>
+
+                <h3 class="font-serif text-xl font-bold text-gray-900 dark:text-white">Why It Matters</h3>
+                <p>
+                    Existing models fix drone assignments before the disaster and never revisit them&mdash;if a drone
+                    is destroyed, its assigned communities go without aid. Our model breaks this rigidity through
+                    <span class="font-semibold text-earth-primary dark:text-earth-light">post-disaster drone reassignment</span>.
+                    In two real-world case studies (the 2013 Lushan and 2008 Wenchuan earthquakes in China), plans
+                    without reassignment lead to <span class="font-semibold">over 130% higher unmet demand</span>.
+                    With our approach, drones held in reserve at intact facilities are dynamically redeployed to cover
+                    the gaps&mdash;turning potential shortages into delivered aid.
+                </p>
+
+                <h3 class="font-serif text-xl font-bold text-gray-900 dark:text-white">Key Contributions</h3>
+                <ul class="list-disc pl-5 space-y-2">
+                    <li>An integrated <span class="font-semibold">robust optimization model</span> for facility location, inventory prepositioning, fleet sizing, and drone assignment under <span class="font-semibold">decision-dependent uncertainty</span></li>
+                    <li>A novel <span class="font-semibold">post-disaster drone reassignment</span> mechanism that provides decision-makers with contingency plans, dramatically reducing unmet demand</li>
+                    <li>A <span class="font-semibold">K-adaptability approximation</span> solved via a tailored column-and-constraint generation algorithm</li>
+                    <li>Validation on two real-world earthquake case studies demonstrating substantial operational benefits</li>
+                </ul>
                 <div class="mt-8 p-6 bg-white dark:bg-white/5 rounded-xl border border-earth-sand dark:border-earth-primary/20">
                     <h4 class="font-serif font-bold mb-4">Resources</h4>
                     <div class="flex gap-4">
