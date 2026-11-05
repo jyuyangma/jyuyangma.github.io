@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Yuyang Ma — visitor globe</title>
+  <style>
+    html,body{margin:0;background:transparent;font:12px/1.6 system-ui,sans-serif;color:#65765d;overflow:hidden}
+    #globe{width:240px;height:250px;margin:18px auto 0}
+    #map-status{position:absolute;left:0;right:0;top:0;text-align:center;margin:12px auto;max-width:250px;pointer-events:none}
+    #static-map{display:none;width:100%;max-width:300px;height:auto;margin:30px auto}
+    @media(prefers-color-scheme:dark){body{color:#b3bdad}}
+    @media(prefers-reduced-motion:reduce){#globe{display:none}#static-map{display:block}}
+  </style>
+</head>
+<body>
+  <p id="map-status" role="status">Loading visitor globe…</p>
+  <div id="globe"></div>
+  <script>
+    (() => {
+      const status = document.getElementById('map-status');
+      const host = document.getElementById('globe');
+      const key = 'Gtro-7Mn9uM4pSnq7WqPqN-qRJTe-hOXrJZ3JoCdWho';
+      const unavailable = () => {
+        status.hidden = false;
+        status.textContent = 'The globe is unavailable here. You can still open the visitor map using the link below.';
+        host.hidden = true;
+      };
+      if (matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        const map = document.createElement('img');
+        map.id = 'static-map';
+        map.alt = 'Map of visits to Yuyang Ma’s website';
+        map.onload = () => { status.hidden = true; };
+        map.onerror = () => { map.remove(); unavailable(); };
+        map.src = `https://mapmyvisitors.com/map.png?d=${key}&cl=8aab60&w=300`;
+        document.body.append(map);
+        return;
+      }
+      const script = document.createElement('script');
+      script.id = 'mmvst_globe';
+      script.src = `https://mapmyvisitors.com/globe.js?d=${key}&w=240`;
+      script.async = true;
+      script.onerror = unavailable;
+      // Provider code and styles stay inside this frame, away from site navigation.
+      host.append(script);
+      const timeout = setTimeout(() => { observer.disconnect(); unavailable(); }, 15000);
+      const observer = new MutationObserver(() => {
+        const globe = document.querySelector('.mmvst_inner');
+        if (globe && getComputedStyle(globe).display !== 'none') {
+          const mapLink = host.querySelector('a');
+          if (mapLink) {
+            mapLink.target = '_blank';
+            mapLink.rel = 'noopener noreferrer';
+          }
+          status.hidden = true;
+          clearTimeout(timeout);
+          observer.disconnect();
+        }
+      });
+      observer.observe(host, { childList: true, subtree: true, attributes: true });
+    })();
+  </script>
+  <noscript><p>Open the visitor map using the link below.</p></noscript>
+</body>
+</html>

@@ -1,9 +1,12 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yuyang (Johnny) Ma | Ph.D. Student @ USC</title>
+    <title>Yuyang (Johnny) Ma | Optimization &amp; Applied Science | USC</title>
+    <meta name="description" content="Yuyang Ma is a USC Ph.D. student working on optimization under uncertainty, logistics, and mobility. Seeking internships and part-time research opportunities.">
+    <link rel="stylesheet" href="assets/site-enhancements.css">
+    <script src="assets/site-enhancements.js" defer></script>
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -136,9 +139,9 @@ gtag('config', 'G-V3611X1FCC');
                                 <a onclick="switchPage('project-1')" class="block px-4 py-3 text-xs text-gray-700 dark:text-gray-300 hover:bg-earth-sand dark:hover:bg-white/10 cursor-pointer border-b border-gray-50 dark:border-gray-800">
                                     Drone-Based Disaster Relief
                                 </a>
-                                <!-- <a onclick="switchPage('project-2')" class="block px-4 py-3 text-xs text-gray-700 dark:text-gray-300 hover:bg-earth-sand dark:hover:bg-white/10 cursor-pointer">
-                                    Supply Chain Resilience
-                                </a> -->
+                                <a onclick="switchPage('project-2')" class="block px-4 py-3 text-xs text-gray-700 dark:text-gray-300 hover:bg-earth-sand dark:hover:bg-white/10 cursor-pointer">
+                                    Mobile EV Charging Fleets
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -155,12 +158,12 @@ gtag('config', 'G-V3611X1FCC');
                 </div>
 
                 <!-- Dark Mode Toggle -->
-                <button id="theme-toggle" class="text-earth-primary dark:text-earth-light hover:scale-110 transition-transform focus:outline-none">
+                <button id="theme-toggle" aria-label="Toggle light and dark theme" class="text-earth-primary dark:text-earth-light hover:scale-110 transition-transform focus:outline-none">
                     <i id="theme-icon" class="fas fa-moon"></i>
                 </button>
 
                 <!-- Mobile Menu Icon -->
-                <button id="mobile-menu-btn" class="md:hidden text-earth-primary dark:text-earth-light text-xl ml-6 focus:outline-none">
+                <button id="mobile-menu-btn" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-menu" class="md:hidden text-earth-primary dark:text-earth-light text-xl ml-6 focus:outline-none">
                     <i class="fas fa-bars"></i>
                 </button>
             </div>
@@ -169,20 +172,20 @@ gtag('config', 'G-V3611X1FCC');
         <!-- Mobile Menu Overlay -->
         <div id="mobile-menu" class="hidden md:hidden bg-earth-cream dark:bg-earth-night border-t border-earth-sand dark:border-gray-800 absolute w-full left-0 top-full shadow-lg">
             <div class="flex flex-col px-6 py-4 space-y-4 text-sm font-medium text-gray-600 dark:text-earth-mist">
-                <a onclick="switchPage('home'); toggleMobileMenu()" class="hover:text-earth-primary dark:hover:text-earth-light cursor-pointer">About</a>
-                <a onclick="switchPage('home'); toggleMobileMenu()" href="#news" class="hover:text-earth-primary dark:hover:text-earth-light cursor-pointer">News</a>
+                <a onclick="switchPage('home')" class="hover:text-earth-primary dark:hover:text-earth-light cursor-pointer">About</a>
+                <a onclick="switchPage('home')" href="#news" class="hover:text-earth-primary dark:hover:text-earth-light cursor-pointer">News</a>
                 
                 <!-- Research Mobile Group -->
                 <div class="pl-4 border-l-2 border-earth-sand dark:border-gray-700 space-y-3 py-1">
                     <span class="text-xs font-bold uppercase tracking-wider text-earth-primary dark:text-earth-light opacity-50">Research</span>
-                    <a onclick="switchPage('project-1'); toggleMobileMenu()" class="block cursor-pointer hover:text-earth-primary">Drone Relief</a>
-                    <!-- <a onclick="switchPage('project-2'); toggleMobileMenu()" class="block cursor-pointer hover:text-earth-primary">Supply Chain</a> -->
+                    <a onclick="switchPage('project-1')" class="block cursor-pointer hover:text-earth-primary">Drone Relief</a>
+                    <a onclick="switchPage('project-2')" class="block cursor-pointer hover:text-earth-primary">Mobile EV Charging</a>
                 </div>
 
-                <a onclick="switchPage('home'); toggleMobileMenu()" href="#teaching" class="hover:text-earth-primary dark:hover:text-earth-light cursor-pointer">Teaching</a>
-                <a onclick="switchPage('cv-page'); toggleMobileMenu()" class="hover:text-earth-primary dark:hover:text-earth-light cursor-pointer">CV</a>
-                <a onclick="switchPage('life-page'); toggleMobileMenu()" class="hover:text-earth-primary dark:hover:text-earth-light cursor-pointer">Life</a>
-                <a onclick="switchPage('home'); toggleMobileMenu()" href="#contact" class="hover:text-earth-primary dark:hover:text-earth-light cursor-pointer">Contact</a>
+                <a onclick="switchPage('home')" href="#teaching" class="hover:text-earth-primary dark:hover:text-earth-light cursor-pointer">Teaching</a>
+                <a onclick="switchPage('cv-page')" class="hover:text-earth-primary dark:hover:text-earth-light cursor-pointer">CV</a>
+                <a onclick="switchPage('life-page')" class="hover:text-earth-primary dark:hover:text-earth-light cursor-pointer">Life</a>
+                <a onclick="switchPage('home')" href="#contact" class="hover:text-earth-primary dark:hover:text-earth-light cursor-pointer">Contact</a>
             </div>
         </div>
     </nav>
@@ -194,7 +197,7 @@ gtag('config', 'G-V3611X1FCC');
         <main class="max-w-5xl mx-auto px-6 pt-36 pb-10">
             
             <!-- Hero -->
-            <section id="about" class="mb-24">
+            <section id="about" class="mb-16">
                 <div class="flex flex-col md:flex-row gap-12 items-center md:items-start">
                     <div class="shrink-0 relative group">
                         <div class="absolute -inset-2 rounded-full border border-earth-light opacity-30 transform rotate-45 group-hover:rotate-90 transition-transform duration-1000"></div>
@@ -208,10 +211,13 @@ gtag('config', 'G-V3611X1FCC');
                             Yuyang (Johnny) Ma
                         </h1>
                         <p class="text-lg text-earth-brown dark:text-earth-mist mb-6 font-light italic">
-                            Ph.D. Student @ USC | Industrial & Systems Engineering
+                            Ph.D. student at USC
                         </p>
                         <p class="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed font-light text-base">
-                            Yuyang Ma is a Ph.D. student in the Daniel J. Epstein Department of Industrial and Systems Engineering at University of Southern California. He received a master's degree in operations research from Georgia Institute of Technology in 2022. Prior to that, he received a bachelor's degree in industrial engineering from the University of Pittsburgh (Pittsburgh, United States) and a bachelor's degree in industrial engineering from Sichuan University (Chengdu, China). Yuyang's research interests lie in <strong class="text-earth-primary dark:text-earth-light font-medium">optimization under uncertainty and corresponding applications</strong>. He is currently working with <a href="https://sites.google.com/site/karmelshehadeh/home" target="_blank" class="hover:text-earth-primary dark:hover:text-earth-light transition-colors underline decoration-earth-light/50 underline-offset-2">Dr. Karmel S. Shehadeh</a>.
+                            I am a Ph.D. student in Industrial and Systems Engineering at the University of Southern California, advised by <a href="https://sites.google.com/site/karmelshehadeh/home" target="_blank" rel="noopener noreferrer" class="hover:text-earth-primary dark:hover:text-earth-light underline decoration-earth-light/50 underline-offset-2">Dr. Karmel S. Shehadeh</a>. I develop <strong class="text-earth-primary dark:text-earth-light font-medium">optimization models and algorithms for decisions under uncertainty</strong>, with applications in logistics, mobility, and energy systems. My recent work includes integrated planning of drone-based disaster relief (accepted at <em>Transportation Science</em>) and deployment, repositioning, and pricing of mobile EV-charging fleets under demand learned from context and price.
+                        </p>
+                        <p class="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed font-light text-base">
+                            I hold an M.S. in Operations Research from Georgia Tech and bachelor's degrees in Industrial Engineering from the University of Pittsburgh and Sichuan University.
 
                         </p>
                         <div class="flex justify-center md:justify-start gap-6">
@@ -230,12 +236,37 @@ gtag('config', 'G-V3611X1FCC');
 
             <hr class="border-earth-sand dark:border-earth-primary/20 mb-20">
 
+            <!-- Availability: update this section when the search status changes. -->
+            <section id="opportunities" class="opportunity-card" aria-labelledby="opportunity-title">
+                <div class="opportunity-heading">
+                    <h2 id="opportunity-title"><span class="availability-dot" aria-hidden="true"></span> Open to internships &amp; part-time research</h2>
+                    <div class="opportunity-contact" aria-label="Contact me">
+                        <a href="mailto:yuyangm@usc.edu?subject=Internship%20or%20part-time%20research%20opportunity" aria-label="Email Yuyang Ma" title="Email"><i class="fas fa-envelope" aria-hidden="true"></i></a>
+                        <a href="https://www.linkedin.com/in/yuyangma1/" target="_blank" rel="noopener noreferrer" aria-label="Yuyang Ma on LinkedIn" title="LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+                <p class="opportunity-interest">Looking for Summer 2027 research / applied scientist internships (and part-time research during the year) in logistics, marketplace, and mobility teams. I study optimization under uncertainty and connect demand prediction with operational decisions. Expected graduation: May 2028.</p>
+                <div class="skill-grid" aria-label="Key skills">
+                    <div><h3>Optimization</h3><p>Robust · Distributionally robust · Stochastic</p></div>
+                    <div><h3>Algorithms</h3><p>Mixed-integer programming · C&amp;CG · K-adaptability</p></div>
+                    <div><h3>Machine learning</h3><p>Demand modeling · Time-series forecasting · Deep RL (in progress)</p></div>
+                    <div><h3>Tools</h3><p>Python · Gurobi · PyTorch · SQL</p></div>
+                </div>
+            </section>
+
             <!-- News -->
             <section id="news" class="mb-24">
                 <h2 class="font-serif text-2xl font-bold text-gray-900 dark:text-white mb-8 flex items-center">
                     <span class="bg-earth-light w-1.5 h-6 rounded-full mr-3"></span> News
                 </h2>
                 <div class="space-y-10 border-l border-earth-sand dark:border-earth-primary/20 ml-2 pl-8 relative">
+                    <div class="relative group">
+                        <div class="absolute -left-[37px] top-1.5 w-3 h-3 bg-earth-primary dark:bg-earth-light rounded-full ring-4 ring-earth-cream dark:ring-earth-night"></div>
+                        <div class="flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-6">
+                            <span class="text-xs font-bold text-earth-brown dark:text-earth-mist uppercase tracking-wider shrink-0 w-24">Oct 2026</span>
+                            <p class="text-gray-700 dark:text-gray-300">Our paper on integrated drone-based disaster-relief planning was accepted by <strong class="text-earth-primary dark:text-earth-light">Transportation Science</strong>.</p>
+                        </div>
+                    </div>
                     <div class="relative group">
                         <div class="absolute -left-[37px] top-1.5 w-3 h-3 bg-earth-primary dark:bg-earth-light rounded-full ring-4 ring-earth-cream dark:ring-earth-night group-hover:scale-125 transition-transform"></div>
                         <div class="flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-6">
@@ -274,10 +305,10 @@ gtag('config', 'G-V3611X1FCC');
                             <h3 class="text-lg font-serif font-bold text-gray-900 dark:text-white group-hover:text-earth-primary dark:group-hover:text-earth-light transition-colors">
                                 Integrated Planning of Drone-Based Disaster Relief: Facility Location, Inventory Prepositioning, and Fleet Operations under Uncertainty
                             </h3>
-                            <span class="text-[10px] font-bold text-white bg-earth-light px-2 py-1 rounded self-start uppercase tracking-wider">Submitted</span>
+                            <span class="text-[10px] font-bold text-white bg-earth-light px-2 py-1 rounded self-start uppercase tracking-wider">Published</span>
                         </div>
                         <p class="text-sm text-earth-brown dark:text-earth-mist mb-3">
-                            <span class="font-semibold text-gray-900 dark:text-gray-200">Yuyang Ma</span>, Karmel S. Shehadeh, Man-Yiu Tsang
+                            <span class="font-semibold text-gray-900 dark:text-gray-200">Yuyang Ma</span>, Karmel S. Shehadeh, Man Yiu Tsang
                         </p>
                         <div class="flex gap-4 pt-1 border-t border-gray-50 dark:border-gray-700 mt-4 items-center">
                             <a href="papers/Drone_Paper_Preprint.pdf" class="text-xs font-bold text-earth-primary dark:text-earth-light hover:text-earth-brown dark:hover:text-white uppercase tracking-wider flex items-center"><i class="far fa-file-pdf mr-1.5"></i> PDF</a>
@@ -289,15 +320,15 @@ gtag('config', 'G-V3611X1FCC');
                         </div>
                     </div>
                     <!-- Paper 2 -->
-                    <!-- <div class="group bg-white dark:bg-white/5 p-6 rounded-xl shadow-sm border border-earth-sand dark:border-earth-primary/20 hover:shadow-md hover:border-earth-light dark:hover:border-earth-light/50 transition-all duration-300">
+                    <div class="group bg-white dark:bg-white/5 p-6 rounded-xl shadow-sm border border-earth-sand dark:border-earth-primary/20 hover:shadow-md hover:border-earth-light dark:hover:border-earth-light/50 transition-all duration-300">
                         <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2 mb-2">
                             <h3 class="text-lg font-serif font-bold text-gray-900 dark:text-white group-hover:text-earth-primary dark:group-hover:text-earth-light transition-colors">
-                                Robust Optimization for Supply Chain Resilience
+                                Distributionally Robust Deployment, Repositioning, and Pricing of Autonomous Mobile Charging Stations under Context- and Price-Dependent Demand
                             </h3>
-                            <span class="text-[10px] font-bold text-earth-brown dark:text-earth-mist bg-earth-sand dark:bg-white/10 px-2 py-1 rounded self-start uppercase tracking-wider">In Prep</span>
+                            <span class="text-[10px] font-bold text-earth-brown dark:text-earth-mist bg-earth-sand dark:bg-white/10 px-2 py-1 rounded self-start uppercase tracking-wider">Working paper</span>
                         </div>
                         <p class="text-sm text-earth-brown dark:text-earth-mist mb-3">
-                            <span class="font-semibold text-gray-900 dark:text-gray-200">Yuyang Ma</span>, Co-Author
+                            <span class="font-semibold text-gray-900 dark:text-gray-200">Yuyang Ma</span>, Karmel S. Shehadeh
                         </p>
                         <div class="flex gap-4 pt-1 border-t border-gray-50 dark:border-gray-700 mt-4 items-center">
                             <div class="flex-grow"></div>
@@ -305,7 +336,7 @@ gtag('config', 'G-V3611X1FCC');
                                 View Details <i class="fas fa-arrow-right ml-1.5"></i>
                             </button>
                         </div>
-                    </div> -->
+                    </div>
                 </div>
             </section>
 
@@ -339,6 +370,15 @@ gtag('config', 'G-V3611X1FCC');
                                 </div>
                                 <span class="text-earth-brown dark:text-earth-mist shrink-0">Summer 2024</span>
                             </li>
+                            <li class="pl-4 border-l-2 border-earth-sand dark:border-earth-primary/30 hover:border-earth-primary transition-colors flex flex-col sm:flex-row sm:justify-between sm:items-baseline gap-1">
+                                <div>
+                                    <span class="font-semibold">Teaching Assistant:</span>
+                                    <a href="https://catalog.lehigh.edu/courselisting/ise/" target="_blank" class="hover:text-earth-primary dark:hover:text-earth-light transition-colors underline decoration-earth-light/50 underline-offset-2">
+                                        ISE 121 Applied Engineering Statistics
+                                    </a>
+                                </div>
+                                <span class="text-earth-brown dark:text-earth-mist shrink-0">Spring 2024</span>
+                            </li>
                         </ul>
                     </div>
 
@@ -371,7 +411,7 @@ gtag('config', 'G-V3611X1FCC');
                 </h2>
                 <div class="bg-earth-sand/30 dark:bg-white/5 p-8 rounded-xl border border-earth-sand dark:border-earth-primary/20">
                     <p class="mb-8 text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
-                        The best way to contact is through e-mail (yuyangm 'at' usc 'dot' edu). Please indicate the purpose of the e-mail in the subject line, and I will try to respond as soon as possible. Besides, you can also reach me through the following ways:
+                        Feel free to reach out about collaborations, talks, research opportunities, or anything else you’d like to discuss. Email is the best way to reach me (yuyangm 'at' usc 'dot' edu); please include a brief subject line, and I’ll respond as soon as I can.
                     </p>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                         <div>
@@ -403,13 +443,12 @@ gtag('config', 'G-V3611X1FCC');
             </section>
 
 
-            <!-- ClustrMaps widget script -->
-            <section id="VisitorMap" class="mb-12">
-                <h2 class="font-serif text-2xl font-bold text-gray-900 dark:text-white mb-8 flex items-center">
-                    <span class="bg-earth-light w-1.5 h-6 rounded-full mr-3"></span> Visitor Map
-                </h2>
-                <div style="height:250px; width:300px;margin: 0 auto;">
-                    <script type="text/javascript" id="clstr_globe" src="//clustrmaps.com/globe.js?d=Gtro-7Mn9uM4pSnq7WqPqN-qRJTe-hOXrJZ3JoCdWho"></script>
+            <section id="visitors" class="visitor-section" aria-labelledby="visitors-title">
+                <h2 id="visitors-title" class="font-serif text-2xl font-bold text-gray-900 dark:text-white mb-8 flex items-center"><span class="bg-earth-light w-1.5 h-6 rounded-full mr-3"></span> Visitor Map</h2>
+                <div id="VisitorMap" class="map-standalone">
+                    <iframe class="visitor-globe" src="visitor-map.html" title="Interactive globe of website visitors, provided by MapMyVisitors" loading="lazy"></iframe>
+                    <a class="map-stats-link" href="https://mapmyvisitors.com/web/1c0q1" target="_blank" rel="noopener noreferrer">Explore visitor map &amp; stats <span aria-hidden="true">↗</span></a>
+                    <p class="map-credit">Visitor map by MapMyVisitors.</p>
                 </div>
             </section>
 
@@ -417,7 +456,7 @@ gtag('config', 'G-V3611X1FCC');
 
         <footer class="bg-white dark:bg-black/20 border-t border-earth-sand dark:border-earth-primary/20 py-12">
             <div class="max-w-5xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500 dark:text-earth-mist">
-                <div class="mb-4 md:mb-0">&copy; 2025 Yuyang Ma. All rights reserved.</div>
+                <div class="mb-4 md:mb-0">&copy; <span id="copyright-year">2026</span> Yuyang Ma. All rights reserved.</div>
                 <div class="flex items-center gap-4">
                     <span>Los Angeles, CA</span>
                     <span class="w-1 h-1 bg-gray-300 dark:bg-gray-700 rounded-full"></span>
@@ -436,14 +475,14 @@ gtag('config', 'G-V3611X1FCC');
                 <button onclick="switchPage('home')" class="text-xs font-bold text-earth-brown hover:text-earth-primary dark:text-earth-mist dark:hover:text-white uppercase tracking-wider flex items-center transition-colors">
                     <i class="fas fa-arrow-left mr-2"></i> Back to Home
                 </button>
-                <a href="files/MaYuyang_Resume_2025.pdf" class="px-4 py-2 bg-earth-primary text-white text-xs font-bold uppercase tracking-wider rounded hover:bg-earth-dark transition-colors shadow-md">
+                <a href="files/MaYuyang_Resume_2026.pdf" class="px-4 py-2 bg-earth-primary text-white text-xs font-bold uppercase tracking-wider rounded hover:bg-earth-dark transition-colors shadow-md">
                     <i class="fas fa-download mr-2"></i> Download PDF
                 </a>
             </div>
             
             <!-- <span class="image main"><img src="images/pic11.jpg" alt="" /></span> -->
-            <iframe src="/files/MaYuyang_Resume_2025.pdf" style="width:100%; height:1000px;"></iframe>
-            <!-- <embed src="/files/MaYuyang_Resume_2025.pdf" width="100%" height="100%" /> -->
+            <iframe src="files/MaYuyang_Resume_2026.pdf" style="width:100%; height:1000px;"></iframe>
+            <!-- <embed src="files/MaYuyang_Resume_2026.pdf" width="100%" height="100%" /> -->
         
         </main>
     </div>
@@ -495,13 +534,13 @@ gtag('config', 'G-V3611X1FCC');
             <button onclick="switchPage('home')" class="mb-8 text-xs font-bold text-earth-brown hover:text-earth-primary dark:text-earth-mist dark:hover:text-white uppercase tracking-wider flex items-center transition-colors">
                 <i class="fas fa-arrow-left mr-2"></i> Back to Home
             </button>
-            <span class="text-[10px] font-bold text-white bg-earth-light px-2 py-1 rounded uppercase tracking-wider inline-block mb-4">Submitted</span>
+            <span class="text-[10px] font-bold text-white bg-earth-light px-2 py-1 rounded uppercase tracking-wider inline-block mb-4">Accepted · Transportation Science</span>
             <h1 class="font-serif text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6">
                 Integrated Planning of Drone-Based Disaster Relief: Facility Location, Inventory Prepositioning, and Fleet Operations under Uncertainty
             </h1>
             <div class="flex flex-wrap gap-6 text-sm text-gray-600 dark:text-gray-400 mb-8 border-b border-earth-sand dark:border-earth-primary/20 pb-8">
-                <span><strong class="text-earth-primary dark:text-earth-light">Authors:</strong> Yuyang Ma, Karmel S. Shehadeh, Man-Yiu Tsang</span>
-                <span><strong class="text-earth-primary dark:text-earth-light">Status:</strong> Under Review</span>
+                <span><strong class="text-earth-primary dark:text-earth-light">Authors:</strong> Yuyang Ma, Karmel S. Shehadeh, Man Yiu Tsang</span>
+                <span><strong class="text-earth-primary dark:text-earth-light">Status:</strong> Accepted by Transportation Science · October 14, 2026</span>
             </div>
             <div class="prose prose-earth dark:prose-invert max-w-none text-gray-700 dark:text-gray-300 leading-relaxed space-y-6">
                 <h3 class="font-serif text-xl font-bold text-gray-900 dark:text-white">Motivation</h3>
@@ -541,8 +580,7 @@ gtag('config', 'G-V3611X1FCC');
                     Existing models fix drone assignments before the disaster and never revisit them&mdash;if a drone
                     is destroyed, its assigned communities go without aid. Our model breaks this rigidity through
                     <span class="font-semibold text-earth-primary dark:text-earth-light">post-disaster drone reassignment</span>.
-                    In two real-world case studies (the 2013 Lushan and 2008 Wenchuan earthquakes in China), plans
-                    without reassignment lead to <span class="font-semibold">over 130% higher unmet demand</span>.
+                    Computational case studies based on the 2013 Lushan and 2008 Wenchuan earthquakes in China show that allowing reassignment can reduce unmet demand and operating costs under disruption. The benefits vary by disruption scenario.
                     With our approach, drones held in reserve at intact facilities are dynamically redeployed to cover
                     the gaps&mdash;turning potential shortages into delivered aid.
                 </p>
@@ -566,20 +604,58 @@ gtag('config', 'G-V3611X1FCC');
     </div>
 
     <!-- Project 2 -->
-    <!-- <div id="project-2" class="page-section flex-grow bg-earth-cream dark:bg-earth-night">
+    <div id="project-2" class="page-section flex-grow bg-earth-cream dark:bg-earth-night">
         <main class="max-w-5xl mx-auto px-6 pt-36 pb-20">
             <button onclick="switchPage('home')" class="mb-8 text-xs font-bold text-earth-brown hover:text-earth-primary dark:text-earth-mist dark:hover:text-white uppercase tracking-wider flex items-center transition-colors">
                 <i class="fas fa-arrow-left mr-2"></i> Back to Home
             </button>
-            <span class="text-[10px] font-bold text-earth-brown dark:text-earth-mist bg-earth-sand dark:bg-white/10 px-2 py-1 rounded uppercase tracking-wider inline-block mb-4">In Preparation</span>
+            <span class="text-[10px] font-bold text-earth-brown dark:text-earth-mist bg-earth-sand dark:bg-white/10 px-2 py-1 rounded uppercase tracking-wider inline-block mb-4">Working paper · 2026</span>
             <h1 class="font-serif text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6">
-                Robust Optimization for Supply Chain Resilience
+                Distributionally Robust Deployment, Repositioning, and Pricing of Autonomous Mobile Charging Stations under Context- and Price-Dependent Demand
             </h1>
+            <div class="flex flex-wrap gap-6 text-sm text-gray-600 dark:text-gray-400 mb-8 border-b border-earth-sand dark:border-earth-primary/20 pb-8">
+                <span><strong class="text-earth-primary dark:text-earth-light">Authors:</strong> Yuyang Ma, Karmel S. Shehadeh</span>
+                <span><strong class="text-earth-primary dark:text-earth-light">Status:</strong> In preparation</span>
+            </div>
             <div class="prose prose-earth dark:prose-invert max-w-none text-gray-700 dark:text-gray-300 leading-relaxed space-y-6">
-                <p>This research investigates how robust optimization techniques can be applied to multi-echelon supply chains...</p>
+                <h3 class="font-serif text-xl font-bold text-gray-900 dark:text-white">Motivation</h3>
+                <p>
+                    Autonomous mobile charging stations (AMCSs) bring the charger to the parked EV. They are useful where fixed chargers are
+                    unavailable, congested, or hard to install&mdash;shopping centers, airports, campuses, event venues. A provider operating a fleet of
+                    AMCSs faces a familiar marketplace problem: <span class="font-semibold text-earth-primary dark:text-earth-light">where to position supply, what to charge, and how to adjust during the day</span>
+                    as demand reveals itself. Demand depends on price and on context such as weather, traffic, and events, and it is only partially predictable.
+                </p>
+
+                <h3 class="font-serif text-xl font-bold text-gray-900 dark:text-white">What We Do</h3>
+                <p>
+                    We study a two-period daily planning problem. Before the first period, the provider allocates the fleet across service areas and sets prices.
+                    After observing first-period demand and updated context, it can reposition vehicles and re-price for the second period.
+                    Demand in each period is modeled with <span class="font-semibold text-earth-primary dark:text-earth-light">scenario-specific demand functions</span>
+                    estimated from historical records: contextual features identify the operating scenario, demand responds to the area's own price, and the second-period
+                    forecast carries over the first-period forecast residual. Rather than trusting a point forecast, we hedge against forecast error with
+                    <span class="font-semibold text-earth-primary dark:text-earth-light">mean&ndash;MAD ambiguity sets</span> whose means depend on the pricing decision itself.
+                </p>
+                <p>
+                    The resulting model is a three-stage distributionally robust optimization problem with integer repositioning decisions and decision-dependent ambiguity.
+                    We reduce it to a two-stage robust problem, approximate second-period pricing with <span class="font-semibold text-earth-primary dark:text-earth-light">K candidate pricing policies</span>
+                    (K-adaptability) selected after first-period demand is observed, show that the repositioning recourse is equivalent to a linear program through a
+                    minimum-cost-flow structure, and solve the problem with a column-and-constraint generation algorithm.
+                </p>
+
+                <h3 class="font-serif text-xl font-bold text-gray-900 dark:text-white">Why It Matters</h3>
+                <p>
+                    The framework connects demand learning with operational decisions in a way that is practical for operators: a small menu of pricing plans
+                    prepared in advance, fully adaptive repositioning, and protection against the forecast being wrong. The same structure applies to other
+                    on-demand fleets&mdash;ride-hailing, delivery, and shared mobility&mdash;where supply must be positioned and priced before demand is known.
+                </p>
+
+                <h3 class="font-serif text-xl font-bold text-gray-900 dark:text-white">Status</h3>
+                <p>
+                    Modeling and solution methodology are complete; numerical experiments are in progress. A preprint will be posted here when available.
+                </p>
             </div>
         </main>
-    </div> -->
+    </div>
 
     <script>
         // Theme Logic
@@ -619,6 +695,7 @@ gtag('config', 'G-V3611X1FCC');
 
         function toggleMobileMenu() {
             mobileMenu.classList.toggle('hidden');
+            mobileBtn.setAttribute('aria-expanded', String(!mobileMenu.classList.contains('hidden')));
         }
 
         mobileBtn.addEventListener('click', toggleMobileMenu);
@@ -636,9 +713,21 @@ gtag('config', 'G-V3611X1FCC');
             const target = document.getElementById(pageId === 'home' ? 'home-page' : pageId);
             if (target) {
                 target.classList.add('active');
-                window.scrollTo({ top: 0, behavior: 'smooth' });
+                window.scrollTo({ top: 0, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
             }
         }
     </script>
+    <aside id="lulu-widget" class="lulu-widget" aria-label="Lulu, your cat companion">
+        <button id="lulu-toggle" class="lulu-toggle" type="button" aria-expanded="true" aria-controls="cat-scene" title="Minimize Lulu">Lulu <span aria-hidden="true">−</span></button>
+        <div id="cat-scene" class="cat-scene" data-mood="curious">
+            <span class="cat-spark" aria-hidden="true">♥</span>
+            <span class="cat-zzz" aria-hidden="true">z z z</span>
+            <button id="pet-cat" class="cat-canvas" type="button" aria-label="Pat Lulu" disabled>
+                <img id="lulu-image" class="lulu-image" src="images/lulu/sitting.png" alt="Lulu sitting patiently" width="600" height="600" draggable="false">
+            </button>
+            <p id="cat-status" class="cat-status" aria-live="polite" aria-atomic="true">Pat me ♡</p>
+        </div>
+    </aside>
+
 </body>
 </html>
